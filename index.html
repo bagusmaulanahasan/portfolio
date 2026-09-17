@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/bagusmaulanahasan/portfolio/refs/heads/main/assets/icon.webp">
+    <!-- 1. MENGHUBUNGKAN MANIFEST DI SINI -->
+    <link rel="manifest" href="manifest.json">
 
 <script defer src="https://cloud.umami.is/script.js" data-website-id="ca17b775-0f8a-4178-90c8-fd64b0910a72"></script>
 
@@ -521,6 +523,16 @@
                 }
             });
         });
+
+    <!-- 2. MENDAFTARKAN SERVICE WORKER DI BAGIAN PALING BAWAH SEBELUM CLOSING BODY -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('service-worker.js')
+            .then(reg => console.log('PWA Siap Pakai! SW terdaftar:', reg.scope))
+            .catch(err => console.log('Gagal daftar PWA:', err));
+        });
+      }
     </script>
 </body>
 

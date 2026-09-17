@@ -525,7 +525,6 @@
         });
 
     <!-- 2. MENDAFTARKAN SERVICE WORKER DI BAGIAN PALING BAWAH SEBELUM CLOSING BODY -->
-    <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
           navigator.serviceWorker.register('service-worker.js')
